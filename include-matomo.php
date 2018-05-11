@@ -1,11 +1,11 @@
 <?php
 /* 
 Plugin Name: Include Matomo
-Plugin URI: https://jonas-hellmann.de
+Plugin URI: https://github.com/jonashellmann/include-matomo/
 Description: This plugin includes Matomo into your Wordpress site
 Version: 1.0.0
 Author: Jonas Hellmann
-Author URI: https://jonas-hellmann.de
+Author URI: https://jonas-hellmann.de/en/
 License: GPL3
 */
 
