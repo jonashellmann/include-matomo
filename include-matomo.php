@@ -18,9 +18,9 @@ function include_matomo_script() {
   echo "  _paq.push(['trackPageView']);\n";
   echo "  _paq.push(['enableLinkTracking']);\n";
   echo "  (function() {\n";
-  echo "    var u='//example.com/';\n";
+  echo "    var u='//" . get_option('matomo_url') . "/';\n";
   echo "    _paq.push(['setTrackerUrl', u+'piwik.php']);\n";
-  echo "    _paq.push(['setSiteId', '1']);\n";
+  echo "    _paq.push(['setSiteId', '" . get_option('matomo_site_id') . "']);\n";
   echo "    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];\n";
   echo "    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);\n";
   echo "  })();\n";
@@ -34,8 +34,8 @@ add_filter( 'the_permalink_rss', 'add_matomo_campaign_to_rss' );
 function add_matomo_campaign_to_rss($guid) {
   global $post;
   $get_vars = array(
-    urlencode( 'pk_campaign=rss' ),
-    urlencode( 'pk_source=rss' )
+    urlencode( 'pk_campaign=' . get_option('matomo_rss_campaign') ),
+    urlencode( 'pk_source=' . get_option('matomo_rss_source') )
   );
   return $guid . '?' . implode( '&', $get_vars );
 }
@@ -51,7 +51,7 @@ add_action( 'admin_init', 'my_plugin_settings' );
 
 function my_plugin_settings() {
   register_setting( 'include-matomo-settings-group', 'matomo_url' );
-  register_setting( 'include-matomo-settings-group', 'matomo_page_id' );
+  register_setting( 'include-matomo-settings-group', 'matomo_site_id' );
   register_setting( 'include-matomo-settings-group', 'matomo_rss_campaign' );
   register_setting( 'include-matomo-settings-group', 'matomo_rss_source' );
 }
@@ -74,7 +74,7 @@ function include_matomo_settings_page() { ?>
     <tr valign="top">
       <th scope="row">Matomo Page ID</th>
       <td>
-      <input type="text" name="matomo_page_id" value="<?php echo esc_attr( get_option('matomo_page_id') ); ?>" />
+      <input type="text" name="matomo_site_id" value="<?php echo esc_attr( get_option('matomo_site_id') ); ?>" />
       </td>
     </tr>
     
