@@ -60,7 +60,7 @@ function my_plugin_settings() {
 
 function include_matomo_settings_page() { ?>
   <div class="wrap">
-    <h2>Staff Details</h2>
+    <h2>Matomo Settings</h2>
 
     <form method="post" action="options.php">
      <?php settings_fields( 'include-matomo-settings-group' ); ?>
