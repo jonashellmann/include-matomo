@@ -56,8 +56,47 @@ function my_plugin_settings() {
   register_setting( 'include-matomo-settings-group', 'matomo_rss_source' );
 }
 
-function include_matomo_settings_page() {
-  // 
+function include_matomo_settings_page() { ?>
+  <div class="wrap">
+    <h2>Staff Details</h2>
+
+    <form method="post" action="options.php">
+     <?php settings_fields( 'include-matomo-settings-group' ); ?>
+   <?php do_settings_sections( 'include-matomo-settings-group' ); ?>
+   <table class="form-table">
+        <tr valign="top">
+             <th scope="row">Matomo URL</th>
+                  <td>
+                      <input type="text" name="matomo_url" value="<?php echo esc_attr( get_option('matomo_url') ); ?>" />
+                           </td>
+                              </tr>
+                                  
+    <tr valign="top">
+      <th scope="row">Matomo Page ID</th>
+      <td>
+      <input type="text" name="matomo_page_id" value="<?php echo esc_attr( get_option('matomo_page_id') ); ?>" />
+      </td>
+    </tr>
+    
+    <tr valign="top">
+      <th scope="row">Matomo RSS Campaign</th>
+      <td>
+      <input type="text" name="matomo_rss_campaign" value="<?php echo esc_attr( get_option('matomo_rss_campaign') ); ?>" />
+      </td>
+    </tr>
+  
+  <tr valign="top">
+      <th scope="row">Matomo RSS Source</th>
+      <td>
+      <input type="text" name="matomo_rss_source" value="<?php echo esc_attr( get_option('matomo_rss_source') ); ?>" />
+      </td>
+    </tr>
+  </table>
+  
+  <?php submit_button(); ?>
+
+ </form>
+   </div> <?php
 }
 
 ?>
