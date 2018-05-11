@@ -6,7 +6,7 @@ Description: This plugin includes Matomo into your Wordpress site
 Version: 1.0.0
 Author: Jonas Hellmann
 Author URI: https://jonas-hellmann.de
-License: GPL2
+License: GPL3
 */
 
 add_action( 'wp_footer', 'include_matomo_script' );
