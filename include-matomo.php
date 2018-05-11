@@ -9,8 +9,9 @@ Author URI: https://jonas-hellmann.de/en/
 License: GPL3
 */
 
-// TODO: Only include if URL and Page ID are set
-add_action( 'wp_footer', 'include_matomo_script' );
+if( get_option('matomo_url') !== '' && get_option('matomo_site_id') !== '0' ) {
+  add_action( 'wp_footer', 'include_matomo_script' );
+}
  
 function include_matomo_script() {
   echo "<!-- Include Matomo -->\n";
@@ -75,7 +76,7 @@ function include_matomo_settings_page() { ?>
     <tr valign="top">
       <th scope="row">Matomo Page ID</th>
       <td>
-      <input type="text" name="matomo_site_id" value="<?php echo esc_attr( get_option('matomo_site_id') ); ?>" />
+      <input type="number" name="matomo_site_id" value="<?php echo esc_attr( get_option('matomo_site_id') ); ?>" />
       </td>
     </tr>
     
