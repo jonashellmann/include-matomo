@@ -20,7 +20,7 @@ function include_matomo_script() {
   echo "  _paq.push(['trackPageView']);\n";
   echo "  _paq.push(['enableLinkTracking']);\n";
   echo "  (function() {\n";
-  echo "    var u='//" . get_option('matomo_url') . "/';\n"; // TODO: React to wrong typed URL (no ending slash and no protocol)
+  echo "    var u='//" . get_matomo_url() . "/';\n";
   echo "    _paq.push(['setTrackerUrl', u+'piwik.php']);\n";
   echo "    _paq.push(['setSiteId', '" . get_option('matomo_site_id') . "']);\n";
   echo "    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];\n";
@@ -28,6 +28,20 @@ function include_matomo_script() {
   echo "  })();\n";
   echo "</script>\n";
   echo "<!-- End Matomo Code-->\n";
+}
+
+function get_matomo_url() {
+  $matomo_url = get_option('matomo_url');
+  if( substr_compare( $matomo_url, '/', -1, 1 ) == 0 ) {
+    $matomo_url = substr( $matomo_url, 0, -1 );
+  }
+  if( substr_compare( $matomo_url, 'https://', 0, 8 ) == 0 ) {
+    $matomo_url = substr( $matomo_url, 8 );
+  }
+  if( substr_compare( $matomo_url, 'http://', 0, 7 ) == 0 ) {
+    $matomo_url = substr( $matomo_url, 7 );
+  }
+  return $matomo_url;
 }
 
 // TODO: Only include if this should be used
