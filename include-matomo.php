@@ -28,4 +28,16 @@ function include_matomo_script() {
   echo "<!-- End Matomo Code-->\n";
 }
 
+
+add_filter( 'the_permalink_rss', 'add_matomo_campaign_to_rss' );
+
+function add_matomo_campaign_to_rss($guid) {
+  global $post;
+  $get_vars = array(
+    urlencode( 'pk_campaign=rss' ),
+    urlencode( 'pk_source=rss' )
+  );
+  return $guid . '?' . implode( '&', $get_vars );
+}
+
 ?>
