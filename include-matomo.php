@@ -40,4 +40,24 @@ function add_matomo_campaign_to_rss($guid) {
   return $guid . '?' . implode( '&', $get_vars );
 }
 
+
+add_action('admin_menu', 'include_matomo_menu');
+
+function include_matomo_menu() {
+    add_submenu_page('options-general.php', 'Include Matomo - Settings', 'Include Matomo', 'administrator', 'include-matomo-settings', 'include_matomo_settings_page');
+}
+
+add_action( 'admin_init', 'my_plugin_settings' );
+
+function my_plugin_settings() {
+  register_setting( 'include-matomo-settings-group', 'matomo_url' );
+  register_setting( 'include-matomo-settings-group', 'matomo_page_id' );
+  register_setting( 'include-matomo-settings-group', 'matomo_rss_campaign' );
+  register_setting( 'include-matomo-settings-group', 'matomo_rss_source' );
+}
+
+function include_matomo_settings_page() {
+  // 
+}
+
 ?>
