@@ -9,6 +9,7 @@ Author URI: https://jonas-hellmann.de/en/
 License: GPL3
 */
 
+// TODO: Only include if URL and Page ID are set
 add_action( 'wp_footer', 'include_matomo_script' );
  
 function include_matomo_script() {
@@ -18,7 +19,7 @@ function include_matomo_script() {
   echo "  _paq.push(['trackPageView']);\n";
   echo "  _paq.push(['enableLinkTracking']);\n";
   echo "  (function() {\n";
-  echo "    var u='//" . get_option('matomo_url') . "/';\n";
+  echo "    var u='//" . get_option('matomo_url') . "/';\n"; // TODO: React to wrong typed URL (no ending slash and no protocol)
   echo "    _paq.push(['setTrackerUrl', u+'piwik.php']);\n";
   echo "    _paq.push(['setSiteId', '" . get_option('matomo_site_id') . "']);\n";
   echo "    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];\n";
@@ -28,7 +29,7 @@ function include_matomo_script() {
   echo "<!-- End Matomo Code-->\n";
 }
 
-
+// TODO: Only include if this should be used
 add_filter( 'the_permalink_rss', 'add_matomo_campaign_to_rss' );
 
 function add_matomo_campaign_to_rss($guid) {
