@@ -50,8 +50,8 @@ add_filter( 'the_permalink_rss', 'add_matomo_campaign_to_rss' );
 function add_matomo_campaign_to_rss($guid) {
   global $post;
   $get_vars = array(
-    urlencode( 'pk_campaign=' . get_option('matomo_rss_campaign') ),
-    urlencode( 'pk_source=' . get_option('matomo_rss_source') )
+    'pk_campaign' . urlencode( get_option('matomo_rss_campaign') ),
+    'pk_source' . urlencode( get_option('matomo_rss_source') )
   );
   return $guid . '?' . implode( '&', $get_vars );
 }
