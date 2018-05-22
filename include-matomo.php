@@ -3,7 +3,7 @@
 Plugin Name: Include Matomo
 Plugin URI: https://github.com/jonashellmann/include-matomo/
 Description: This plugin includes Matomo into your Wordpress site
-Version: 1.2
+Version: 1.3
 Author: Jonas Hellmann
 Author URI: https://jonas-hellmann.de/en/
 License: GPL3
@@ -50,8 +50,8 @@ add_filter( 'the_permalink_rss', 'add_matomo_campaign_to_rss' );
 function add_matomo_campaign_to_rss($guid) {
   global $post;
   $get_vars = array(
-    'pk_campaign' . urlencode( get_option('matomo_rss_campaign') ),
-    'pk_source' . urlencode( get_option('matomo_rss_source') )
+    'pk_campaign=' . urlencode( get_option('matomo_rss_campaign') ),
+    'pk_source=' . urlencode( get_option('matomo_rss_source') )
   );
   return $guid . '?' . implode( '&', $get_vars );
 }
