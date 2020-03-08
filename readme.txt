@@ -1,4 +1,4 @@
-=== Include Matomo ===
+=== Include Matomo Tracking, by Jonas Hellmann ===
 Contributors: jonashellmann
 Donate link: 
 Tags: matomo, analytics, tracking
@@ -9,7 +9,7 @@ Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-This plugin includes Matomo into your Wordpress site. Therefore it adds the Matomo tracking to your site and it's capable of adding a Matomo campaign to your RSS feeds.
+This plugin lets you integrate your existing Matomo On-Premise into WordPress. If you don't already have a working Matomo (either <a href='https://matomo.org/matomo-on-premise/'>On-Premise</a> or <a href='https://matomo.org/hosting/'>Matomo Cloud</a>), use the <a href='https://wordpress.org/plugins/matomo/'>Matomo Analytics</a> plugin instead.
 
 == Description ==
 
@@ -43,6 +43,8 @@ If it is injected you also should check if the page ID is set correctly.
 
 = 1.0 =
 * This is the initial version of the plugin.
+= 1.4 =
+* Renaming the plugin due to a request by Matomo. (https://wordpress.org/support/topic/request-to-update-plugin-with-regards-to-the-trademark-guidelines-2/)
 
 == Upgrade Notice ==
 

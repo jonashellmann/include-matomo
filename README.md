@@ -1,4 +1,4 @@
-# Include Matomo - Wordpress Plugin
+# Include Matomo Tracking, by Jonas Hellmann - Wordpress Plugin
 
 This plugin includes Matomo into your Wordpress site.
 There are two features to do this right now.
