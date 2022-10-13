@@ -3,7 +3,7 @@
 Plugin Name: Include Matomo Tracking, by Jonas Hellmann
 Plugin URI: https://github.com/jonashellmann/include-matomo/
 Description: This plugin includes Matomo into your Wordpress site
-Version: 1.4
+Version: 1.5
 Author: Jonas Hellmann
 Author URI: https://jonas-hellmann.de/en/
 License: GPL3
@@ -23,6 +23,9 @@ function include_matomo_script() {
   echo "    var u='//" . get_matomo_url() . "/';\n";
   echo "    _paq.push(['setTrackerUrl', u+'piwik.php']);\n";
   echo "    _paq.push(['setSiteId', '" . get_option('matomo_site_id') . "']);\n";
+  if (get_option('matomo_disable_cookies', 'n') == 'y') {
+    echo "    _paq.push([‘disableCookies’]);\n";
+  }
   echo "    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];\n";
   echo "    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);\n";
   echo "  })();\n";
@@ -70,6 +73,7 @@ function my_plugin_settings() {
   register_setting( 'include-matomo-settings-group', 'matomo_site_id' );
   register_setting( 'include-matomo-settings-group', 'matomo_rss_campaign' );
   register_setting( 'include-matomo-settings-group', 'matomo_rss_source' );
+  register_setting( 'include-matomo-settings-group', 'matomo_disable_cookies' );
 }
 
 function include_matomo_settings_page() { ?>
@@ -78,33 +82,40 @@ function include_matomo_settings_page() { ?>
 
     <form method="post" action="options.php">
      <?php settings_fields( 'include-matomo-settings-group' ); ?>
-   <?php do_settings_sections( 'include-matomo-settings-group' ); ?>
+     <?php do_settings_sections( 'include-matomo-settings-group' ); ?>
    <table class="form-table">
-        <tr valign="top">
-             <th scope="row">Matomo URL</th>
-                  <td>
-                      <input type="text" name="matomo_url" value="<?php echo esc_attr( get_option('matomo_url') ); ?>" />
-                           </td>
-                              </tr>
+    <tr valign="top">
+      <th scope="row">Matomo URL</th>
+      <td>
+        <input type="text" name="matomo_url" value="<?php echo esc_attr( get_option('matomo_url') ); ?>" />
+      </td>
+    </tr>
                                   
     <tr valign="top">
       <th scope="row">Matomo Page ID</th>
       <td>
-      <input type="number" name="matomo_site_id" value="<?php echo esc_attr( get_option('matomo_site_id') ); ?>" />
+        <input type="number" name="matomo_site_id" value="<?php echo esc_attr( get_option('matomo_site_id') ); ?>" />
       </td>
     </tr>
     
     <tr valign="top">
       <th scope="row">Matomo RSS Campaign</th>
       <td>
-      <input type="text" name="matomo_rss_campaign" value="<?php echo esc_attr( get_option('matomo_rss_campaign') ); ?>" />
+        <input type="text" name="matomo_rss_campaign" value="<?php echo esc_attr( get_option('matomo_rss_campaign') ); ?>" />
       </td>
     </tr>
   
-  <tr valign="top">
+    <tr valign="top">
       <th scope="row">Matomo RSS Source</th>
       <td>
-      <input type="text" name="matomo_rss_source" value="<?php echo esc_attr( get_option('matomo_rss_source') ); ?>" />
+        <input type="text" name="matomo_rss_source" value="<?php echo esc_attr( get_option('matomo_rss_source') ); ?>" />
+      </td>
+    </tr>
+
+    <tr valign="top">
+      <th scope="row">Matomo Disable Cookies? (y/n)</th>
+      <td>
+        <input type="text" name="matomo_disable_cookies" value="<?php echo esc_attr( get_option('matomo_disable_cookies', 'n') ); ?>" />
       </td>
     </tr>
   </table>

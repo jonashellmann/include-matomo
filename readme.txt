@@ -3,7 +3,7 @@ Contributors: jonashellmann
 Donate link: 
 Tags: matomo, analytics, tracking
 Requires at least: 2.7
-Tested up to: 5.4
+Tested up to: 6.0
 Stable tag: trunk 
 Requires PHP: 7.2
 License: GPLv3
@@ -17,7 +17,8 @@ This plugin lets you integrate your existing Matomo On-Premise into WordPress. I
 
 Matomo, formerly called Piwik, is an self-hosted open-source tool to analyze your pages. It needs a tracking code to be included in the pages that should be monitored. Also campaigns can be created by using specific parameters in the URL.
 
-Therefore in this plugin You can configure the URL where Matomo is hosted and the site ID for tracking your Wordpress page. You can find it in the tracking code. You only need to fill in these both information. The rest of the tracking code is standartized and automatically inserted in the page. Also you can set a campaign name (pk_campaign) and source (pk_source) which will be adds to the links in your RSS feed. This helps you to analyze how many users enter your pages by using your RSS feed.
+Therefore in this plugin, you can configure the URL where Matomo is hosted and the site ID for tracking your Wordpress page. You can find it in the tracking code. You only need to fill in these both information. The rest of the tracking code is standartized and automatically inserted in the page. Also, you can set a campaign name (pk_campaign) and source (pk_source) which will be adds to the links in your RSS feed. This helps you to analyze how many users enter your pages by using your RSS feed.
+If you like to, there is an additional field to deactivate the usage of cookies by Matomo.
 
 == Installation ==
 
