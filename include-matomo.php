@@ -3,7 +3,7 @@
 Plugin Name: Include Matomo Tracking, by Jonas Hellmann
 Plugin URI: https://github.com/jonashellmann/include-matomo/
 Description: This plugin includes Matomo into your Wordpress site
-Version: 1.5
+Version: 1.5.1
 Author: Jonas Hellmann
 Author URI: https://jonas-hellmann.de/en/
 License: GPL3
@@ -24,7 +24,7 @@ function include_matomo_script() {
   echo "    _paq.push(['setTrackerUrl', u+'piwik.php']);\n";
   echo "    _paq.push(['setSiteId', '" . get_option('matomo_site_id') . "']);\n";
   if (get_option('matomo_disable_cookies', 'n') == 'y') {
-    echo "    _paq.push([‘disableCookies’]);\n";
+    echo "    _paq.push(['disableCookies']);\n";
   }
   echo "    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];\n";
   echo "    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);\n";
