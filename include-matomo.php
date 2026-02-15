@@ -86,7 +86,7 @@ function include_matomo_settings_page() { ?>
      <?php do_settings_sections( 'include-matomo-settings-group' ); ?>
    <table class="form-table">
     <tr valign="top">
-      <th scope="row">Matomo URL</th>
+      <th scope="row"><?php _e('Matomo URL', 'include-matomo' );?></th>
       <td>
         <input type="text" name="matomo_url" value="<?php echo esc_attr( get_option('matomo_url') ); ?>" />
       </td>
