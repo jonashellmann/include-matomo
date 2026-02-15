@@ -2,7 +2,7 @@
 /* 
 Plugin Name: Include Matomo Tracking, by Jonas Hellmann
 Plugin URI: https://github.com/jonashellmann/include-matomo/
-Description: This plugin includes Matomo into your Wordpress site
+Description: This plugin includes Matomo into your WordPress site
 Version: 1.5.2
 Author: Jonas Hellmann
 Author URI: https://jonas-hellmann.de/en/
