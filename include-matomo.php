@@ -6,6 +6,7 @@ Description: This plugin includes Matomo into your Wordpress site
 Version: 1.5.1
 Author: Jonas Hellmann
 Author URI: https://jonas-hellmann.de/en/
+Text Domain: include-matomo
 License: GPL3
 */
 
@@ -78,7 +79,7 @@ function my_plugin_settings() {
 
 function include_matomo_settings_page() { ?>
   <div class="wrap">
-    <h2>Matomo Settings</h2>
+    <h2><?php _e('Matomo Settings', 'include-matomo'); ?></h2>
 
     <form method="post" action="options.php">
      <?php settings_fields( 'include-matomo-settings-group' ); ?>
@@ -92,28 +93,28 @@ function include_matomo_settings_page() { ?>
     </tr>
                                   
     <tr valign="top">
-      <th scope="row">Matomo Page ID</th>
+      <th scope="row"><?php _e('Matomo Page ID', 'include-matomo' ); ?></th>
       <td>
         <input type="number" name="matomo_site_id" value="<?php echo esc_attr( get_option('matomo_site_id') ); ?>" />
       </td>
     </tr>
     
     <tr valign="top">
-      <th scope="row">Matomo RSS Campaign</th>
+      <th scope="row"><?php _e('Matomo RSS Campaign', 'include-matomo' );?></th>
       <td>
         <input type="text" name="matomo_rss_campaign" value="<?php echo esc_attr( get_option('matomo_rss_campaign') ); ?>" />
       </td>
     </tr>
   
     <tr valign="top">
-      <th scope="row">Matomo RSS Source</th>
+      <th scope="row"><?php _e( 'Matomo RSS Source', 'include-matomo' ); ?></th>
       <td>
         <input type="text" name="matomo_rss_source" value="<?php echo esc_attr( get_option('matomo_rss_source') ); ?>" />
       </td>
     </tr>
 
     <tr valign="top">
-      <th scope="row">Matomo Disable Cookies? (y/n)</th>
+      <th scope="row"><?php _e( 'Matomo Disable Cookies? (y/n)', 'include-matomo' ); ?></th>
       <td>
         <input type="text" name="matomo_disable_cookies" value="<?php echo esc_attr( get_option('matomo_disable_cookies', 'n') ); ?>" />
       </td>
