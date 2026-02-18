@@ -4,7 +4,7 @@ Donate link:
 Tags: matomo, analytics, tracking
 Requires at least: 4.7
 Tested up to: 6.9
-Stable tag: trunk 
+Stable tag: 1.5.2
 Requires PHP: 7.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html

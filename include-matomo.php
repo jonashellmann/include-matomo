@@ -2,7 +2,7 @@
 /* 
 Plugin Name: Include Matomo Tracking, by Jonas Hellmann
 Plugin URI: https://github.com/jonashellmann/include-matomo/
-Description: This plugin includes Matomo into your Wordpress site
+Description: This plugin includes Matomo into your WordPress site
 Version: 1.5.2
 Author: Jonas Hellmann
 Author URI: https://jonas-hellmann.de/en/
@@ -86,7 +86,7 @@ function include_matomo_settings_page() { ?>
      <?php do_settings_sections( 'include-matomo-settings-group' ); ?>
    <table class="form-table">
     <tr valign="top">
-      <th scope="row">Matomo URL</th>
+      <th scope="row"><?php _e('Matomo URL', 'include-matomo' );?></th>
       <td>
         <input type="text" name="matomo_url" value="<?php echo esc_attr( get_option('matomo_url') ); ?>" />
       </td>
