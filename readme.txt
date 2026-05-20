@@ -3,7 +3,7 @@ Contributors: jonashellmann
 Donate link: 
 Tags: matomo, analytics, tracking
 Requires at least: 4.7
-Tested up to: 6.9
+Tested up to: 7.0
 Stable tag: trunk 
 Requires PHP: 7.2
 License: GPLv3
